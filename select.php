@@ -5,7 +5,7 @@ require_once('funcs.php');
 //1.  DB接続します
 try {
   //Password:MAMP='root',XAMPP=''
-  $pdo = new PDO('mysql:dbname=gs_db_02task; charset=utf8; host=localhost','root','root');
+  $pdo = new PDO('mysql:dbname=02_task; charset=utf8; host=localhost','root','root');
 } catch (PDOException $e) {
   exit('DBConnectError:'.$e->getMessage());
 }
@@ -15,7 +15,7 @@ $stmt = $pdo->prepare("SELECT * FROM gs_bm_table");
 //3. 実行
 $status = $stmt->execute();
 
-///4．データ表示
+//4．データ表示
 $view="";//空のviewを作成
 if($status==false) {
     //execute（SQL実行時にエラーがある場合）
@@ -26,9 +26,15 @@ if($status==false) {
   //FETCH_ASSOC=http://php.net/manual/ja/pdostatement.fetch.php
   while( $result = $stmt->fetch(PDO::FETCH_ASSOC)){ 
     $view .= "<p>";
-    $view .= h($result['indate']).':'.h($result['name'].)':'.h($result['url']);
+    $view .= h($result['indate']).':'.h($result['name']).':'.h($result['url']).':'.h($result['comments']);
+    $view .= '<a href="delete.php?id='.$result["id"].'">';
+    $view .= '[削除]';
+    $view .= '</a>';
+    $view .= '<a href="detail.php?id='.$result["id"].'">';
+    $view .= '[編集]';
+    $view .= '</a>';
     $view .= "</p>";//dataのかずだけ繰り返し表示
-  }
+    }
 }
 ?>
 
@@ -39,7 +45,7 @@ if($status==false) {
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>フリーアンケート表示</title>
+<title>書籍一覧</title>
 <link rel="stylesheet" href="css/range.css">
 <link href="css/bootstrap.min.css" rel="stylesheet">
 <style>div{padding: 10px;font-size:16px;}</style>
