@@ -2,15 +2,15 @@
 //selsect.phpから処理を持ってくる
 //1.外部ファイル読み込みしてDB接続(funcs.phpを呼び出して)
 require_once('funcs.php');
-//$pdo = db_conn();
+$pdo = db_conn();
 
 //1.  DB接続します
-try {
-    //Password:MAMP='root',XAMPP=''
-    $pdo = new PDO('mysql:dbname=02_task; charset=utf8; host=localhost','root','root');
-  } catch (PDOException $e) {
-    exit('DBConnectError:'.$e->getMessage());
-  }
+// try {
+//     //Password:MAMP='root',XAMPP=''
+//     $pdo = new PDO('mysql:dbname=02_task; charset=utf8; host=localhost','root','root');
+//   } catch (PDOException $e) {
+//     exit('DBConnectError:'.$e->getMessage());
+//   }
 
 //2.対象のIDを取得
 $id = $_GET["id"];

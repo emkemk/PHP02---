@@ -11,7 +11,7 @@ $id = $POST["id"];
 require_once('funcs.php');
 try {
   //Password:MAMP='root',XAMPP=''
-  $pdo = new PDO('mysql:dbname=02_task; charset=utf8; host=localhost','root','root');
+  $pdo = new PDO('mysql:dbname=gs_db_02task; charset=utf8; host=localhost','root','root');
 } catch (PDOException $e) {
   exit('DBConnectError:'.$e->getMessage());
 }
@@ -38,7 +38,7 @@ if($status==false){
 }else{
     //５．index.phpへリダイレクト
     //以下を関数化
-    redirect('select.php');
+    redirect('Location: index.php');
   }
 
 ?>
