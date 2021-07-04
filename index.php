@@ -23,12 +23,10 @@
   <div class="jumbotron">
    <fieldset>
     <legend>書籍ブックマーク</legend>
-     <label>書籍名：<input type="text" name="name"></label><br>
-     <label>書籍URL：<input type="text" name="url"></label><br>
-     <label>コメント：<textArea name="comments" rows="2" cols="60"></textArea></label><br>
-     <br>
-     <br>
-     <label> <input type="submit" value="送信">
+    <label>書籍名：<input type="text" name="name"></label><br>
+    <label>書籍URL：<input type="text" name="url"></label><br>
+    <label>コメント：<textArea name="comments" rows="2" cols="60"></textArea></label><br>
+    <input type="submit" value="送信">
     </fieldset>
   </div>
 </form>

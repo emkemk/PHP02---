@@ -29,11 +29,11 @@ $status = $stmt->execute();
 if($status==false){
   //SQL実行時にエラーがある場合（エラーオブジェクト取得して表示）
   $error = $stmt->errorInfo();
-  exit("ErroMassage:".$error[2]);
+  exit("ErrorMessage:".$error[2]);
 }else{
 
 //7．index.phpへリダイレクト
-  header('Location: index.php');//ヘッダーロケーション（リダイレクト）
+  header("Location: index.php");//ヘッダーロケーション（リダイレクト）
  
 } 
 ?>

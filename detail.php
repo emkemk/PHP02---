@@ -19,7 +19,7 @@ $id = $_GET["id"];
 
 //3．データ取得SQLを作成（SELECT文）
 $stmt = $pdo->prepare("SELECT * FROM gs_bm_table WHERE id=:id");
-$stmt ->bindvalue(':id',$id,PDO::PARAM_INT);
+$stmt ->bindValue(':id',$id,PDO::PARAM_INT);
 //実行
 $status = $stmt->execute();
 
@@ -68,7 +68,7 @@ if ($status == false) {
             <label>書籍URL：<input type="text" name="url" value="<?=$result['url']?>"></label><br>
             <label>コメント：<textArea name="comments" rows="2" cols="60"></textArea></label><br>
             <br>
-                <label><textarea name="content" rows="4" cols="40"><?=$result['content']?></textarea></label><br>
+                <!-- <label><textarea name="content" rows="4" cols="40"><?=$result['content']?></textarea></label><br> -->
                 <input type="hidden" name="id" value="<?=$result['id']?>">
                 <input type="submit" value="送信">
             </fieldset>
